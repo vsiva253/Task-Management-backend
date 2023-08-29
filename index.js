@@ -122,6 +122,22 @@ app.post('/create', (req,res)=>{
     .catch(err=>res.json(err))
 })
 
+// ... (other imports and setup code)
+
+app.put('/updatepost/:postId', (req, res) => {
+    const postId = req.params.postId;
+    const updatedPost = req.body;
+
+    PostModel.findByIdAndUpdate(postId, updatedPost)
+        .then(() => {
+            res.json({ message: "Post updated successfully" });
+        })
+        .catch(err => res.json(err));
+});
+
+// ... (other routes and app.listen)
+
+
 app.listen(3001,()=>{
     console.log("server is running")
 })
