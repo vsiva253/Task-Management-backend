@@ -1,10 +1,11 @@
-const mongoose=require("mongoose")
-const PostSchema= new mongoose.Schema({
-    title:String,
-    description: String,
-    
-})
+const mongoose = require("mongoose");
 
-const PostModel=mongoose.model('posts',PostSchema)
+const PostSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  isCompleted: { type: Boolean, default: false }, // Add this field to track completion status
+});
 
-module.exports= PostModel;
+const PostModel = mongoose.model("posts", PostSchema);
+
+module.exports = PostModel;
